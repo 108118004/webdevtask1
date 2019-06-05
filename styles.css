@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css?family=Assistant:300,400');
+
+
+
+*{
+	box-sizing: border-box;
+	font-family: Assistant;
+
+}
+
+.intro{
+  color: blue;
+  background-image: url("images/food2.jpg");
+  background-size: cover;
+  padding-bottom: 50px;
+}
+
+h1{
+  text-align: center;
+  margin: 0;
+  padding-top: 30px;
+}
+
+.personal{
+  margin: 0;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.personalform,.calorieform,.waterform{
+  border-style:  solid;  ;
+  border-color:  #321ae8 ;
+  border-width: 3px;
+  width:600px;
+  padding: 20px;
+  padding-bottom: 20px;
+  position: relative;
+  left:20%;
+  top:20px;
+  border-radius: 5px 5px 5px 5px;
+  background-color: #d9d9d9;
+}
+
+label,input{
+  padding: 15px;
+  margin-left: 150px;
+  display: block;
+}
+
+input{
+  border-radius: 5px 5px 5px 5px;
+  width: 300px;
+  height: 30px;
+}
+
+button{
+  cursor: pointer;
+}
+
+button:hover{
+  background-color: grey;
+}
+
+.position{
+  margin-left: 225px;
+  margin-top: 20px;
+  display: block;
+  border-radius: 15px;
+  width: 150px;
+}
+
+
+.message{
+  display: none;
+  background-color: white;
+}
+
+.message-h2{
+  color: black;
+  font-size: 20px;
+  font-family: Assistant;
+  position: relative;
+  top: 20px;
+	text-align: center;
+}
+
+.caloriebutton,.waterbutton,.reset{
+	border-radius: 5px;
+	display: block;
+	padding-top: 0;
+	padding-bottom: 0;
+	width: 75px;
+	text-align: center;
+}
+
+.calorieform,.waterform{
+	display: none;
+}
+
+.calorieh2{
+	margin: 0;
+  padding-top: 50px;
+  padding-bottom: 5px;
+	color: #50e417;
+}
+h3{
+	padding: 0;
+	margin: 0;
+}
+
+.changeCalorieConsumed{
+	font-size: 17px;
+	color: red;
+}
+
+.reset{
+	margin-top: 70px;
+}

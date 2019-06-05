@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Diet Maintanance</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <div class="intro">
+      <h1 class="introh1">Track My Calories</h1>
+    </div>
+   <div class="personal">
+     <header>
+       <h2>Personal Details</h2>
+     </header>
+     <form class="personalform" action="index.html" method="post">
+       <label for="name">Name :</label>
+       <input type="text" name="name" id="name" value>
+       <label for="age">Age :</label>
+       <input type="number" name="age" id="age" value>
+       <label for="weight">Weight(in kgs) :</label>
+       <input type="number" name="weight"  id="weight" value>
+       <label for="height">Height(in mts) :</label>
+       <input type="number" name="height" id="height" value>
+       <button  class="position" type="button" name="button">Submit</button>
+     </form>
+   </div>
+   <div class="message">
+        <h2 class="message-h2"></h2>
+        <h2 class="message-h2"></h2>
+   </div>
+   <div class="calorieConsumption">
+      <header>
+        <h2 class="calorieh2">Calorie Consumtion</h2>
+      </header>
+      <div class="calorietab">
+        <h3 class="calorieh3">Enter the details of food consumed</h3>
+        <ul></ul>
+        <button class="caloriebutton" type="button" name="button">Add</button>
+        <h2 class="changeCalorieConsumed"></h2>
+     </div>
+     <form class="calorieform" id="calorieform" action="index.html" method="post">
+       <label for="food-name">Food Name :</label>
+       <input type="text" name id="food-name" value>
+       <label for>Carbs(in grams) :</label>
+       <input type="number" name id="carbs" value>
+       <label for>Protiens(in grams) :</label>
+       <input type="number" name id="protiens" value>
+       <label for>Fats(in grams) :</label>
+       <input type="number" name id="fat" value>
+       <button class="position" type="button" name="button">Submit</button>
+    </form>
+  </div>
+  <div class="waterConsumption">
+    <div class="watermessage">
+     <h1 id="timer">Timer :</h1>
+     <h2 class="waterRequirement"></h2>
+     <h3>Water Consumed till now</h3>
+     <ul class="waterul">
+
+     </ul>
+     <button class="waterbutton" type="button" name="button">Add</button>
+   </div>
+  <form class="waterform" action="index.html" method="post">
+    <label for="water-amount">Amount of water consumed</label>
+    <input type="number" name id="water-amount" value>
+    <button class="position" type="button" name="button">Submit</button>
+  </form>
+  <h2 class="changeWaterConsumed"></h2>
+  <button class="reset" type="button" name="button">Reset</button>
+</div>
+   <script src="index.js" charset="UTF-8"></script>
+  </body>
+</html>
