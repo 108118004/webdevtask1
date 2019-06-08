@@ -28,7 +28,7 @@ h1{
   padding-bottom: 30px;
 }
 
-.personalform,.calorieform,.waterform{
+form{
   border-style:  solid;  ;
   border-color:  #321ae8 ;
   border-width: 3px;
@@ -63,12 +63,15 @@ button:hover{
 }
 
 .position{
-  margin-left: 225px;
+  margin-left: 150px;
   margin-top: 20px;
   display: block;
   border-radius: 15px;
   width: 150px;
+	position: relative;
+	cursor: pointer;
 }
+
 
 
 .message{
@@ -130,9 +133,26 @@ h3{
 	font-family: Arvo;
 }
 
-@media (max-width=600px) {
-	p{
-		font-size: 1.25rem;
-    line-height: 1.5rem;
-	}
+@media  (max-width:800px) {
+  form{
+    margin: 0;
+    left: 5%;
+    width: 90%;
+    overflow: auto;
+    padding:3px;
+}
+button{
+
+	left:0;
+	margin:0;
+	width:100px;
+	overflow:hidden;
+
+}
+input,label{
+	margin:0;
+	width:200px;
+
+}
+
 }
