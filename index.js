@@ -20,7 +20,7 @@ if (localStorage.getItem("data") === null) {
     localStorage.setItem("data", JSON.stringify(formDetails));
     personalForm.style.display = "none";
     message.style.display = "block";
-    document.getElementsByTagName('h2')[0].innerHTML = "HI!" + formDetails.name;
+    document.getElementsByTagName('h2')[1].innerHTML = "HI!" + formDetails.name;
     changeh2();
   });
 
@@ -29,7 +29,6 @@ if (localStorage.getItem("data") === null) {
   var formDetails = JSON.parse(localStorage.getItem("data"));
   personalForm.style.display = "none";
   message.style.display = "block";
-  //messageDiv.style.backgroundColor = "green";
   document.getElementsByTagName('h2')[1].innerHTML = "HI! " + formDetails.name;
 
   weight1 = Number(formDetails.weight);
@@ -65,12 +64,12 @@ const liMaker = text => {
 
 if(localStorage.getItem("food")!=null){
    foodarray = JSON.parse(localStorage.getItem("food"));
-   Array.from(foodarray).forEach(function(data){
+   foodarray.forEach(function(e){
    let kcalOfThis=0;
-     kcalOfThis=4*(Number(data.carbs)+Number(data.protein))+9*Number(data.fat);
+     kcalOfThis=4*(Number(e.carbs)+Number(e.protein))+9*Number(e.fat);
      kcalOfThis/=1000;
-     liMaker(data.name+"-"+kcalOfThis+" kcal");
-     kcalConsumed+=4*(Number(data.carbs)+Number(data.protein))+9*Number(data.fat);
+     liMaker(e.foodname+"-"+kcalOfThis+" kcal");
+     kcalConsumed+=4*(Number(e.carbs)+Number(e.protein))+9*Number(e.fat);
    });
 changeCalorieConsumed();
  }
@@ -86,7 +85,7 @@ add.addEventListener("click",function(){
     var calorieDetails = {
       foodname: document.getElementById("food-name").value,
       carbs: document.getElementById("carbs").value,
-      protien: document.getElementById("protiens").value,
+      protein: document.getElementById("protiens").value,
       fat: document.getElementById("fat").value,
   };
 
@@ -98,16 +97,16 @@ add.addEventListener("click",function(){
 
   calorieform.style.display= "none";
   caloriemessage.style.display = "block";
-  Array.from(foodarray).push(calorieDetails);
+  foodarray.push(calorieDetails);
   localStorage.removeItem("food");
-  localStorage.setItem("food", JSON.stringify(Array.from(foodarray)));
+  localStorage.setItem("food", JSON.stringify(foodarray));
   liMaker(calorieDetails.foodname+"-"+ currentkcal+" kcal");
   changeCalorieConsumed();
 });
 
 function changeCalorieConsumed(){
    h2ToChange=document.getElementsByClassName("changeCalorieConsumed")[0];
-   h2ToChange.innerHTML="Current calorie consumption is "+(kcalConsumed/1000);
+   h2ToChange.innerHTML="Current calorie consumption is "+(kcalConsumed/1000) +" kcal";
 
    if((kcalConsumed/1000)>kcal)
      alert("Calorie consumption exceeded !!!");
@@ -121,7 +120,42 @@ var add2=document.getElementsByTagName("button")[3];
 var submit3=document.getElementsByTagName("button")[4];
 var reset=document.getElementsByTagName("button")[5]
 var waterarray=[];
+var waterRequirement=document.getElementsByClassName("waterRequirement")[0];
+var totalwaterconsumption=0;
 var hours,mins;
+
+function checkTime(i) {
+  if (i < 10) {
+    i = "0" + i;
+  }
+  return i;
+}
+
+var waterToDrink=weight1*(2/3)*0.0295735;
+waterToDrink/=24;
+waterToDrink*=hours;
+
+function startTime() {
+  var today = new Date();
+  var h = today.getHours();
+  hours = h;
+  var m = today.getMinutes();
+  mins=m;
+  var s = today.getSeconds();
+  m = checkTime(m);
+  s = checkTime(s);
+  document.getElementById('timer').innerHTML = h + ":" + m + ":" + s;
+  t = setTimeout(function() {
+    startTime();
+  }, 500);
+
+}
+startTime();
+
+function waterrequirement(){
+  waterRequirement.innerHTML="You should have consumed "+(hours/4)+"L of water by now";
+}
+waterrequirement();
 
 function waterLiMaker(e){
   const li=document.createElement("li");
@@ -129,8 +163,8 @@ function waterLiMaker(e){
   waterul.appendChild(li);
 }
 if(localStorage.getItem("water")!=null){
-  waterArray=JSON.parse(localStorage.getItem("water"));
-  waterArray.forEach(function(e){
+  waterarray=JSON.parse(localStorage.getItem("water"));
+  waterarray.forEach(function(e){
     waterLiMaker(e);
   });
 
@@ -139,16 +173,39 @@ if(localStorage.getItem("water")!=null){
 add2.addEventListener("click",function(){
   waterForm.style.display="block";
   watermessage.style.display="none";
+  document.getElementsByClassName("changeWaterConsumed")[0].style.display="none";
 })
 
 submit3.addEventListener("click",function(){
-  var waterconsumed=document.getElementById("water-amount");
+  var waterconsumed=document.getElementById("water-amount").value;
 
-  waterForm.style.display="none";
+   waterForm.style.display="none";
   watermessage.style.display="block";
   waterarray.push(waterconsumed);
   localStorage.removeItem("water");
   localStorage.setItem("water",JSON.stringify(waterarray));
   waterLiMaker(waterconsumed);
   document.location.reload(false);
+});
+
+
+
+waterarray.forEach(function(e){
+  totalwaterconsumption+=Number(e);
 })
+
+
+if((hours/4)>totalwaterconsumption && localStorage.getItem("data") != null){
+document.getElementsByClassName("changeWaterConsumed")[0].innerHTML="You're not hydrated enough..";
+alert("you're not sufficiently hydrated...Please drink water more frequently");
+}
+
+if((hours/4)<totalwaterconsumption){
+ document.getElementsByClassName("changeWaterConsumed")[0].innerHTML="Good job you're sufficiently hydrated...";
+}
+
+reset.addEventListener("click",function(){
+  localStorage.clear();
+  document.location.reload(true);
+})
+
