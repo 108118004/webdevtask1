@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Assistant:300,400');
-
+@import url('https://fonts.googleapis.com/css?family=Arvo&display=swap');
 
 
 *{
@@ -13,6 +13,7 @@
   background-image: url("images/food2.jpg");
   background-size: cover;
   padding-bottom: 50px;
+
 }
 
 h1{
@@ -95,13 +96,14 @@ button:hover{
 
 .calorieform,.waterform{
 	display: none;
+	margin-bottom: 70px;
 }
 
-.calorieh2{
+.calorieh2,.waterh2,.personalh2{
 	margin: 0;
-  padding-top: 50px;
-  padding-bottom: 5px;
-	color: #50e417;
+  padding-top: 30px;
+  padding-bottom: 30px;
+	color: #6917e4;
 }
 h3{
 	padding: 0;
@@ -115,4 +117,22 @@ h3{
 
 .reset{
 	margin-top: 70px;
+}
+
+.waterConsumption{
+	margin-top: 30px;
+	background-color: #1ae83c
+	}
+
+
+.changeWaterConsumed,.waterul,.foodul{
+	background-color: #e1e417;
+	font-family: Arvo;
+}
+
+@media (max-width=600px) {
+	p{
+		font-size: 1.25rem;
+    line-height: 1.5rem;
+	}
 }
