@@ -2,8 +2,9 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Diet Maintanance</title>
+    <title>Diet Maintainance</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="images/food.ico" type="image/x-icon">
   </head>
   <body>
     <div class="intro">
@@ -11,7 +12,7 @@
     </div>
    <div class="personal">
      <header>
-       <h2>Personal Details</h2>
+       <h2 class="personalh2">Personal Details</h2>
      </header>
      <form class="personalform" action="index.html" method="post">
        <label for="name">Name :</label>
@@ -35,7 +36,7 @@
       </header>
       <div class="calorietab">
         <h3 class="calorieh3">Enter the details of food consumed</h3>
-        <ul></ul>
+        <ul class="foodul"></ul>
         <button class="caloriebutton" type="button" name="button">Add</button>
         <h2 class="changeCalorieConsumed"></h2>
      </div>
@@ -51,9 +52,13 @@
        <button class="position" type="button" name="button">Submit</button>
     </form>
   </div>
+<hr>
   <div class="waterConsumption">
+      <header>
+      <h2 class="waterh2">Water Consumption</h2>
+      </header>
     <div class="watermessage">
-     <h1 id="timer">Timer :</h1>
+     <h1 id="timer"></h1>
      <h2 class="waterRequirement"></h2>
      <h3>Water Consumed till now</h3>
      <ul class="waterul">
@@ -62,7 +67,7 @@
      <button class="waterbutton" type="button" name="button">Add</button>
    </div>
   <form class="waterform" action="index.html" method="post">
-    <label for="water-amount">Amount of water consumed</label>
+    <label for="water-amount">Amount of water consumed(in lts)</label>
     <input type="number" name id="water-amount" value>
     <button class="position" type="button" name="button">Submit</button>
   </form>
@@ -72,3 +77,4 @@
    <script src="index.js" charset="UTF-8"></script>
   </body>
 </html>
+
